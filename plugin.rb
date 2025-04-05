@@ -16,7 +16,7 @@ after_initialize do
     country = topic_query.options[:country]
     if country.present?
       user_ids = User.joins(:user_custom_fields)
-                     .where("user_custom_fields.name = ? AND user_custom_fields.value ILIKE ?", "user_field_13", "%(\#{country})%")
+                     .where("user_custom_fields.name = ? AND user_custom_fields.value ILIKE ?", "user_field_13", "%(#{country})%")
                      .pluck(:id)
       results = results.where(user_id: user_ids)
     end
