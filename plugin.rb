@@ -2,12 +2,12 @@
 
 # name: add-custom-user-fields-to-serializer
 # about: Adds custom user fields to basic_user serializer for topic lists and filters topics by country
-# version: 0.3
+# version: 0.4
 # authors: Don
 
 after_initialize do
   # Add custom_fields to basic_user serializer
-  add_to_serializer(:basic_user, :custom_fields, false) do
+  add_to_serializer(:basic_user, :custom_fields, respect_plugin_enabled: false) do
     object.respond_to?(:custom_fields) ? object.custom_fields || {} : {}
   end
 
