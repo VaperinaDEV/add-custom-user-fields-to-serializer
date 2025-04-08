@@ -2,7 +2,7 @@
 
 # name: add-custom-user-fields-to-serializer
 # about: Adds custom user fields to basic_user serializer for topic lists and filters topics by country
-# version: 0.2
+# version: 0.3
 # authors: Don
 
 after_initialize do
@@ -40,7 +40,6 @@ after_initialize do
   end
 
   class DiscourseTopicCountryList::CountriesController < ::ApplicationController
-    requires_plugin ::Plugin::Instance
 
     def index
       country_field_id = "user_field_13"
