@@ -11,9 +11,7 @@ COUNTRY_FIELD_ID = "user_field_13"
 after_initialize do
   # Test for AI bot
   Discourse::Application.routes.append do
-    scope module: :ai_bot, path: "/vaperina-ai/ai-bot/conversations" do
-      get "/" => "conversations#index"
-    end
+    get "/vaperina-ai/ai-bot/conversations" => "discourse_ai/ai_bot/conversations#index"
   end
   
   # Add custom_fields to basic_user serializer
