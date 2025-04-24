@@ -8,12 +8,7 @@
 # Define a constant for the country field ID for easier configuration
 COUNTRY_FIELD_ID = "user_field_13"
 
-after_initialize do
-  # Test for AI bot
-  Discourse::Application.routes.append do
-    get "/vaperina-ai/ai-bot/conversations" => "discourse_ai/ai_bot/conversations#index"
-  end
-  
+after_initialize do  
   # Add custom_fields to basic_user serializer
   add_to_serializer(:basic_user, :custom_fields, respect_plugin_enabled: false) do 
     object.respond_to?(:custom_fields) ? object.custom_fields || {} : {} 
