@@ -10,7 +10,7 @@ COUNTRY_FIELD_ID = "user_field_13"
 
 after_initialize do
   Discourse::Application.routes.append do
-    mount ::DiscourseAi::Engine, at: "vaperina-ai"
+    mount ::DiscourseAi::Engine, at: "vaperina-ai", as: "vaperina_ai"
   end
   # Add custom_fields to basic_user serializer
   add_to_serializer(:basic_user, :custom_fields, respect_plugin_enabled: false) do 
